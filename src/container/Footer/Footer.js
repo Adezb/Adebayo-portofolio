@@ -11,6 +11,7 @@ const Footer = () => {
   const form = useRef();
 
   const [isFormSubmitted, setIsFormSubmitted] = useState("");
+  const [emailtext, setEmailtext] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -67,6 +68,7 @@ const Footer = () => {
               type="text"
               placeholder="Your Name"
               name="user_name"
+              required
             />
           </div>
           <div className="app__flex">
@@ -75,6 +77,7 @@ const Footer = () => {
               type="email"
               placeholder="Your Email"
               name="user_email"
+              required
             />
           </div>
           <div>
@@ -82,9 +85,17 @@ const Footer = () => {
               className="p-text"
               placeholder="Your Message"
               name="message"
+              value={emailtext}
+              onChange={(e) => setEmailtext(e.target.value)}
+              required
             />
           </div>
-          <input type="submit" className="p-text" value="Send Message" />
+          <input
+            disabled={!emailtext}
+            type="submit"
+            className="p-text"
+            value="Send Message"
+          />
         </form>
       ) : (
         <div>

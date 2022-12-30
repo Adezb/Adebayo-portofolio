@@ -49,7 +49,7 @@ const About = () => {
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
-            <p className="p-text" style={{ marginTop: 10 }}>
+            <p className="p-text highlight-white" style={{ marginTop: 10 }}>
               {about.description}
             </p>
           </motion.div>
@@ -59,4 +59,4 @@ const About = () => {
   );
 };
 
-export default AppWrap(About, "about");
+export default AppWrap(About, "about", "app__neutralbg");
