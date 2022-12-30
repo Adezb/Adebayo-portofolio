@@ -23,7 +23,7 @@ import html from "../assets/html.png";
 import javascript from "../assets/javascript.png";
 import flutter from "../assets/flutter.png";
 
-export default {
+const images = {
   bgIMG,
   bgWhite,
   css,
@@ -49,3 +49,5 @@ export default {
   javascript,
   flutter,
 };
+
+export default images;
