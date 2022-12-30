@@ -96,7 +96,7 @@ textarea {
   box-shadow: 0 0 25px var(--secondary-color);
 }
 
-.app__footer-form input {
+.app__footer-form button {
   padding: 1rem 2rem;
   border-radius: 10px;
   border: none;

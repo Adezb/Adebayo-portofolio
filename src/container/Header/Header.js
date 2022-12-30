@@ -23,7 +23,7 @@ const Header = () => {
       </Helmet>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 1.8 }}
+        transition={{ duration: 1.5 }}
         className="app__header-info"
       >
         <div className="app__header-badge">
