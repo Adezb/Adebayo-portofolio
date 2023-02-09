@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import emailjs from "@emailjs/browser";
 
 import { images } from "../../constants";
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 
 import "./Footer.css";
 
@@ -12,9 +12,15 @@ const Footer = () => {
 
   const [isFormSubmitted, setIsFormSubmitted] = useState("");
   const [emailtext, setEmailtext] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const downloadResume = () => {
+    window.document("");
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     emailjs
       .sendForm(
@@ -39,21 +45,28 @@ const Footer = () => {
         <title>Footer</title>
         <meta name="description" content="Footer" />
       </Helmet>
-      <h2 className="head-text">You can contact me here</h2>
+      <h2 className="head-text">contact me </h2>
 
       <div className="app__footer-cards">
         <div className="app__footer-card">
-          <img src={images.mail} alt="email" />
-          <a href="mailto:temitopeceo@gmail.com" className="p-text">
-            temitopeceo@gmail.com
-          </a>
+          <img src={images.file} alt="file" />
+          <button className="download-btn" onClick={downloadResume}>
+            Download CV
+          </button>
         </div>
         <div className="app__footer-card">
           <img src={images.smartphone} alt="mobile" />
           <a href="tel: +234 8022485204" className="p-text">
-            +234 8022485204
+            <div className="mobile-number">+234 8022485204</div>
           </a>
         </div>
+      </div>
+
+      <div
+        className="p-text"
+        style={{ fontSize: 22, color: "#000", fontWeight: 600 }}
+      >
+        Send Mail Here
       </div>
 
       {!isFormSubmitted ? (
@@ -66,7 +79,7 @@ const Footer = () => {
             <input
               className="p-text"
               type="text"
-              placeholder="Your Name"
+              placeholder="Name"
               name="user_name"
               required
             />
@@ -75,7 +88,7 @@ const Footer = () => {
             <input
               className="p-text"
               type="email"
-              placeholder="Your Email"
+              placeholder="Email Address"
               name="user_email"
               required
             />
@@ -83,19 +96,22 @@ const Footer = () => {
           <div>
             <textarea
               className="p-text"
-              placeholder="Your Message"
+              placeholder="Message"
               name="message"
               value={emailtext}
               onChange={(e) => setEmailtext(e.target.value)}
               required
             />
           </div>
-          <input
+
+          <button
             disabled={!emailtext}
             type="submit"
             className="p-text"
             value="Send Message"
-          />
+          >
+            {loading ? "Sending...." : "Send Message"}
+          </button>
         </form>
       ) : (
         <div>
@@ -106,4 +122,8 @@ const Footer = () => {
   );
 };
 
-export default AppWrap(Footer, "contact", "app__neutralbg");
+export default AppWrap(
+  MotionWrap(Footer, "app__footer"),
+  "contact",
+  "app__neutralbg"
+);

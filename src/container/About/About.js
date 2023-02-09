@@ -1,31 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
-import { AppWrap } from "../../wrapper";
-import { images } from "../../constants";
+import { AppWrap, MotionWrap } from "../../wrapper";
+import { urlFor, client } from "../../client";
+
 import "./About.css";
 
-const abouts = [
-  {
-    title: "Frontend Developer",
-    description:
-      "I am a frontend developer with passion for building beautiful and functional websites and applications.",
-    imgUrl: images.frontend,
-  },
-  {
-    title: "Web Designer",
-    description: "I am passionate about designing the web interface.",
-    imgUrl: images.webdesign,
-  },
-  {
-    title: "Graphic Designer",
-    description: "I design good graphics.",
-    imgUrl: images.graphicdsgn,
-  },
-];
-
 const About = () => {
+  const [abouts, setAbouts] = useState([]);
+
+  useEffect(() => {
+    const query = `*[_type == "abouts"]`;
+
+    client.fetch(query).then((data) => setAbouts(data));
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -33,8 +23,8 @@ const About = () => {
         <meta name="description" content="About" />
       </Helmet>
       <h2 className="head-text">
-        I know that a <span>Good App</span>
-        <br /> is key to <span>Good Business</span>
+        Developing User Friendly Apps <span style={{ color: "#fff" }}>And</span>
+        <br /> <span>Bringing Designs to Live Through Creativity</span>
       </h2>
       <div className="app__profiles">
         {abouts.map((about, index) => (
@@ -45,7 +35,7 @@ const About = () => {
             className="app__profile-item"
             key={about.title + index}
           >
-            <img src={about.imgUrl} alt={about.title} />
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
@@ -59,4 +49,8 @@ const About = () => {
   );
 };
 
-export default AppWrap(About, "about", "app__neutralbg");
+export default AppWrap(
+  MotionWrap(About, "app__about"),
+  "about",
+  "app__neutralbg"
+);

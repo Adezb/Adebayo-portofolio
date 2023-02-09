@@ -22,8 +22,9 @@ import git from "../assets/git.png";
 import html from "../assets/html.png";
 import javascript from "../assets/javascript.png";
 import flutter from "../assets/flutter.png";
+import file from "../assets/file.png";
 
-export default {
+const images = {
   bgIMG,
   bgWhite,
   css,
@@ -48,4 +49,7 @@ export default {
   html,
   javascript,
   flutter,
+  file,
 };
+
+export default images;

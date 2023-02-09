@@ -1,52 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
-import { AppWrap } from "../../wrapper";
-import { images } from "../../constants";
+import { AppWrap, MotionWrap } from "../../wrapper";
+import { urlFor, client } from "../../client";
 
 import "./Work.css";
-
-const works = [
-  {
-    title: "Portfolio",
-    description: "My portfolio website",
-    projectLink: "",
-    codeLink: "",
-    imgUrl: images.about01,
-    tags: ["Web App", "All"],
-  },
-  {
-    title: "Portfolio",
-    description: "My portfolio website",
-    projectLink: "",
-    codeLink: "",
-    imgUrl: images.about02,
-    tags: ["Web Design", "All"],
-  },
-  {
-    title: "Portfolio",
-    description: "My portfolio website",
-    projectLink: "",
-    codeLink: "",
-    imgUrl: images.about03,
-    tags: ["React JS", "All"],
-  },
-  {
-    title: "Portfolio",
-    description: "My portfolio website",
-    projectLink: "",
-    codeLink: "",
-    imgUrl: images.about04,
-    tags: ["Vanilla JS", "All"],
-  },
-];
 
 const Work = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [filterWork, setFilterWork] = useState([]);
+  const [works, setWorks] = useState([]);
+
+  useEffect(() => {
+    const query = `*[_type == "works"]`;
+
+    client.fetch(query).then((data) => {
+      setWorks(data);
+      setFilterWork(data);
+    });
+  }, []);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
@@ -69,7 +44,7 @@ const Work = () => {
         <meta name="description" content="Work" />
       </Helmet>
       <h2 className="head-text">
-        My Creative <span>Portfolio</span>
+        My Creative <span>Projects</span>
       </h2>
 
       <div className="app__work-filter">
@@ -101,7 +76,7 @@ const Work = () => {
         {filterWork.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
-              <img src={work.imgUrl} alt={work.title} />
+              <img src={urlFor(work.imgUrl)} alt={work.name} />
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -151,4 +126,4 @@ const Work = () => {
   );
 };
 
-export default AppWrap(Work, "work", "app__whitebg");
+export default AppWrap(MotionWrap(Work, "app__works"), "work", "app__whitebg");

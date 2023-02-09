@@ -50,8 +50,15 @@
   align-items: flex-end;
 }
 
+@media screen and (max-width: 450px) {
+  .copyright {
+    width: 80%;
+    padding: 1.5rem 0 0;
+  }
+}
+
 .copyright p {
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--black-color);
 }
 

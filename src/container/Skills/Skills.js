@@ -1,46 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
-import { AppWrap } from "../../wrapper";
-import { images } from "../../constants";
+import { AppWrap, MotionWrap } from "../../wrapper";
+import { urlFor, client } from "../../client";
 
 import "./Skills.css";
 
-const skills = [
-  {
-    title: "React",
-    bgColor: "",
-    icon: images.react,
-  },
-  {
-    title: "Vue",
-    bgColor: "",
-    icon: images.vue,
-  },
-  {
-    title: "JavaScript",
-    bgColor: "",
-    icon: images.javascript,
-  },
-  {
-    title: "HTML",
-    bgColor: "",
-    icon: images.html,
-  },
-  {
-    title: "CSS",
-    bgColor: "",
-    icon: images.css,
-  },
-  {
-    title: "Git",
-    bgColor: "",
-    icon: images.git,
-  },
-];
-
 const Skills = () => {
+  const [skills, setSkills] = useState([]);
+  // const [experience, setExperience] = useState([]);
+
+  useEffect(() => {
+    const query = `*[_type == "skills"]`;
+    // const querySkills = `*[_type == "experience"]`;
+
+    client.fetch(query).then((data) => {
+      setSkills(data);
+    });
+
+    // client.fetch(querySkills).then((data) => {
+    //   setExperience(data);
+    // });
+  }, []);
   return (
     <>
       <Helmet>
@@ -62,9 +44,9 @@ const Skills = () => {
                 className="app__flex"
                 style={{ backgroundColor: skill.bgColor }}
               >
-                <img src={skill.icon} alt={skill.title} />
+                <img src={urlFor(skill.icon)} alt={skill.name} />
               </div>
-              <p className="p-text">{skill.title}</p>
+              <p className="p-text">{skill.name}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -73,4 +55,4 @@ const Skills = () => {
   );
 };
 
-export default AppWrap(Skills, "skills");
+export default AppWrap(MotionWrap(Skills, "app__skills"), "skills");
