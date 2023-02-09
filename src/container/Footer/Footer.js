@@ -13,10 +13,13 @@ const Footer = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState("");
   const [emailtext, setEmailtext] = useState("");
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
 
   const downloadResume = () => {
     window.document("");
   };
+=======
+>>>>>>> 818082e1a0e3fab907f7eb0382d5706f6d7e4412
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -49,10 +52,17 @@ const Footer = () => {
 
       <div className="app__footer-cards">
         <div className="app__footer-card">
+<<<<<<< HEAD
           <img src={images.file} alt="file" />
           <button className="download-btn" onClick={downloadResume}>
             Download CV
           </button>
+=======
+          <img src={images.mail} alt="email" />
+          <a href="mailto:cektopventures@gmail.com" className="p-text">
+            cektopventures@gmail.com
+          </a>
+>>>>>>> 818082e1a0e3fab907f7eb0382d5706f6d7e4412
         </div>
         <div className="app__footer-card">
           <img src={images.smartphone} alt="mobile" />
