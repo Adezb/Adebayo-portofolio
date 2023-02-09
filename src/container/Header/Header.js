@@ -23,16 +23,11 @@ const Header = () => {
       </Helmet>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-<<<<<<< HEAD
         transition={{ duration: 0.9 }}
-=======
-        transition={{ duration: 1.5 }}
->>>>>>> 818082e1a0e3fab907f7eb0382d5706f6d7e4412
         className="app__header-info"
       >
         <div className="app__header-badge">
           <div className="badge-cmp app__flex">
-            {/* <span>👋</span> */}
             <div style={{ marginLeft: 20 }}>
               <p
                 className="p-text"
