@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="app__footer-card">
           <img src={images.smartphone} alt="mobile" />
           <a href="tel: +234 8022485204" className="p-text">
-            +234 8022485204
+            <div className="mobile-number">+234 8022485204</div>
           </a>
         </div>
       </div>
@@ -73,7 +73,7 @@ const Footer = () => {
             <input
               className="p-text"
               type="text"
-              placeholder="Your Name"
+              placeholder="Name"
               name="user_name"
               required
             />
@@ -82,7 +82,7 @@ const Footer = () => {
             <input
               className="p-text"
               type="email"
-              placeholder="Your Email"
+              placeholder="Email Address"
               name="user_email"
               required
             />
@@ -90,7 +90,7 @@ const Footer = () => {
           <div>
             <textarea
               className="p-text"
-              placeholder="Your Message"
+              placeholder="Message"
               name="message"
               value={emailtext}
               onChange={(e) => setEmailtext(e.target.value)}
