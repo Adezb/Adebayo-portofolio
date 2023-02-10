@@ -4,6 +4,8 @@ import emailjs from "@emailjs/browser";
 
 import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
+import { BsTwitter, BsLinkedin } from "react-icons/bs";
+import { FaFacebookF } from "react-icons/fa";
 
 import "./Footer.css";
 
@@ -60,7 +62,13 @@ const Footer = () => {
         className="p-text"
         style={{ fontSize: 22, color: "#000", fontWeight: 600 }}
       >
-        Send Mail Here
+        Mail{" "}
+        <img
+          src={images.mail}
+          alt="mail"
+          style={{ width: 40, height: 40, marginBottom: -10 }}
+        />{" "}
+        Me
       </div>
 
       {!isFormSubmitted ? (
@@ -112,6 +120,23 @@ const Footer = () => {
           <h3 className="head-text">Thank you for reaching out</h3>
         </div>
       )}
+      <div className="footer__social">
+        <div>
+          <a href="https://twitter.com/adezb_CEO">
+            <BsTwitter />
+          </a>
+        </div>
+        <div>
+          <a href="https://facebook.com/adebayo.pokanu">
+            <FaFacebookF />
+          </a>
+        </div>
+        <div>
+          <a href="https://linkedin.com/in/iamadebayopoks/">
+            <BsLinkedin />
+          </a>
+        </div>
+      </div>
     </>
   );
 };
