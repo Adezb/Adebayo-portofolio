@@ -23,8 +23,9 @@ const About = () => {
         <meta name="description" content="About" />
       </Helmet>
       <h2 className="head-text">
-        Developing User Friendly Apps <span style={{ color: "#fff" }}>And</span>
-        <br /> <span>Bringing Designs to Live Through Creativity</span>
+        Creative Frontend Developer <span>skilled in Web development</span>
+        <br />
+        and <span>building user-friendly application</span>
       </h2>
       <div className="app__profiles">
         {abouts.map((about, index) => (
