@@ -23,9 +23,9 @@ const About = () => {
         <meta name="description" content="About" />
       </Helmet>
       <h2 className="head-text">
-        Creative Frontend Developer <span>skilled in Web development</span>
+        Creative Frontend Developer skilled in <span> Web development and</span>
         <br />
-        and <span>building user-friendly application</span>
+        building user-friendly applications.
       </h2>
       <div className="app__profiles">
         {abouts.map((about, index) => (
