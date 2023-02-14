@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 import { images } from "../../constants";
 import "./Navbar.css";
@@ -9,6 +10,10 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
     <nav className="app__navbar">
+      <Helmet>
+        <title>Home</title>
+        <meta name="description" content="Home" />
+      </Helmet>
       <div className="app__navbar-logo">
         <img src={images.adebayologo} alt="logo" />
       </div>
