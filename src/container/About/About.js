@@ -19,7 +19,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About</title>
+        <title>Portfolio</title>
         <meta name="description" content="About" />
       </Helmet>
       <h2 className="head-text">

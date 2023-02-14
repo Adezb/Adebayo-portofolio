@@ -18,8 +18,8 @@ const Header = () => {
   return (
     <div className="app__header app__flex">
       <Helmet>
-        <title>Header</title>
-        <meta name="description" content="Header" />
+        <title>Portfolio</title>
+        <meta name="description" content="bio" />
       </Helmet>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}

@@ -40,7 +40,7 @@ const Work = () => {
   return (
     <>
       <Helmet>
-        <title>Work</title>
+        <title>Portfolio</title>
         <meta name="description" content="Work" />
       </Helmet>
       <h2 className="head-text">

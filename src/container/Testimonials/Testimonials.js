@@ -63,7 +63,7 @@ const Testimonials = () => {
   return (
     <>
       <Helmet>
-        <title>Testimonials</title>
+        <title>Portfolio</title>
         <meta name="description" content="Testimonials" />
       </Helmet>
       {testimonials.length && (

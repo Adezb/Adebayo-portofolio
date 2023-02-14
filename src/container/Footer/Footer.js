@@ -40,8 +40,8 @@ const Footer = () => {
   return (
     <>
       <Helmet>
-        <title>Footer</title>
-        <meta name="description" content="Footer" />
+        <title>Portfolio</title>
+        <meta name="description" content="contact" />
       </Helmet>
       <h2 className="head-text">contact me</h2>
 

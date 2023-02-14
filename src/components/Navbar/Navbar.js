@@ -11,8 +11,8 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <Helmet>
-        <title>Home</title>
-        <meta name="description" content="Home" />
+        <title>Portfolio</title>
+        <meta name="description" content="links" />
       </Helmet>
       <div className="app__navbar-logo">
         <img src={images.adebayologo} alt="logo" />

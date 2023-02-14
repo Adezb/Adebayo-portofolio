@@ -26,7 +26,7 @@ const Skills = () => {
   return (
     <>
       <Helmet>
-        <title>Skills</title>
+        <title>Portfolio</title>
         <meta name="description" content="Skills" />
       </Helmet>
       <h2 className="head-text">Skills</h2>
