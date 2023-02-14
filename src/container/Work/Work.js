@@ -54,6 +54,7 @@ const Work = () => {
           "React JS",
           "Vue JS",
           "Vanilla JS",
+          "HTML, CSS & JS",
           "All",
         ].map((item, index) => (
           <div
