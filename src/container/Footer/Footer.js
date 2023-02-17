@@ -48,7 +48,7 @@ const Footer = () => {
       <div className="app__footer-cards">
         <div className="app__footer-card">
           <img src={images.file} alt="file" />
-          <a href="CV-1.pdf" download="Adebayo CV-1.pdf">
+          <a href="AdebayoCV.pdf" download="Pokanu AdebayoCV.pdf">
             <button className="download-btn">Download CV</button>
           </a>
         </div>
