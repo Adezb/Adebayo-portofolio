@@ -6,13 +6,13 @@ import { AppWrap } from "../../wrapper";
 import { images } from "../../constants";
 import "./Header.css";
 
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    transition: { duration: 1, ease: "easeInOut" },
-    opacity: [0, 1],
-  },
-};
+// const scaleVariants = {
+//   whileInView: {
+//     scale: [0, 1],
+//     transition: { duration: 1, ease: "easeInOut" },
+//     opacity: [0, 1],
+//   },
+// };
 
 const Header = () => {
   return (
